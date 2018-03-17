@@ -62,5 +62,5 @@ componentDidMount | 1 | 是
 componentWillReceiveProps | >=0 | 是
 shouldComponentUpdate | >=0	| 否
 componentWillUpdate | >=0	| 否
-componentDidUpdate | >=0 | 否
+componentDidUpdate | >=0 | 是
 componentWillUnmount | 1 | 否
