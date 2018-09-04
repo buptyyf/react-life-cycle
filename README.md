@@ -39,7 +39,7 @@ webpack-dev-server
 > ##### 存在期
 > - componentWillReceviceProps(nextProps)  
 如果组件收到新的属性（props），就会调用该方法，在这个回调函数里面，你可以根据属性的变化，通过调用 this.setState() 来更新你的组件状态，这里调用更新状态是安全的，并不会触发额外的 render() 调用。
-> - componentShouldUpdate(nextProps, nextState)  
+> - shouldComponentUpdate(nextProps, nextState)  
 当组件接收到新的属性和状态改变的话，都会触发调用 shouldComponentUpdate(...)，输入参数 nextProps 和上面的 componentWillReceiveProps 函数一样， nextState 表示组件即将更新的状态值。这个函数的返回值决定是否需要更新组件，如果 true 表示需要更新，继续走后面的更新流程。否者，则不更新，直接进入等待状态。默认情况下，这个函数永远返回 true 用来保证数据变化的时候 UI 能够同步更新。在大型项目中，你可以自己重载这个函数，通过检查变化前后属性和状态，来决定 UI 是否需要更新，能有效提高应用性能。
 > - componentWillUpdate(nextProps, nextState)  
 如果组件状态或者属性改变，并且上面的 shouldComponentUpdate(...) 返回为 true ，就会开始准更新组件，并调用 componentWillUpdate()。在这个回调中，可以做一些在更新界面之前要做的事情。需要特别注意的是，在这个函数里面，你就不能使用 this.setState 来修改状态。这个函数调用之后，就会把 nextProps 和 nextState 分别设置到 this.props 和 this.state 中。紧接着这个函数，就会调用 render() 来更新界面了。
